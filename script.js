@@ -175,6 +175,391 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 
+
+
+
+
+
+
+//   all ------------------
+function initParadoxWay() {
+  "use strict";
+ 
+  if ($(".testimonials-carousel").length > 0) {
+      var j2 = new Swiper(".testimonials-carousel .swiper-container", {
+          preloadImages: false,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+          grabCursor: true,
+          mousewheel: false,
+          centeredSlides: true,
+          pagination: {
+              el: '.tc-pagination',
+              clickable: true,
+              dynamicBullets: true,
+          },
+          navigation: {
+              nextEl: '.listing-carousel-button-next',
+              prevEl: '.listing-carousel-button-prev',
+          },
+          breakpoints: {
+              1024: {
+                  slidesPerView: 3,
+              },
+              
+          }
+      });
+  }
+  
+// bubbles -----------------
+  
+  
+  setInterval(function () {
+      var size = randomValue(sArray);
+      $('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+      $('.individual-bubble').animate({
+          'bottom': '100%',
+          'opacity': '-=0.7'
+      }, 4000, function () {
+          $(this).remove()
+      });
+  }, 350);
+  
+}
+
+//   Init All ------------------
+$(document).ready(function () {
+  initParadoxWay();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  //------ Slider Begin
+	const CaroS = document.querySelector('.Carousel-slider');
+	const CaroSlider = new MicroSlider(CaroS, { indicators: true, indicatorText: '' });
+	const hammer = new Hammer(CaroS);
+	const CaroSTimer = 2000;
+	let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    
+  //------- Mouseenter Event
+	CaroS.onmouseenter = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseleave Event
+	CaroS.onmouseleave = function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseclick Event
+	CaroS.onclick = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //------ Gesture Tap Event
+	hammer.on('tap', function(e) {
+		clearInterval(CaroAutoplay);
+		console.log(e.type + ' gesture detected');
+	});
+  
+  //----- Gesture Swipe Event
+	hammer.on('swipe', function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' gesture detected');
+	});
+
+  let slideLink = document.querySelectorAll('.slider-item');
+  if (slideLink && slideLink !== null && slideLink.length > 0){
+    slideLink.forEach( el => el.addEventListener('click', e => {
+      e.preventDefault();
+      let href = el.dataset.href;
+      let target = el.dataset.target;
+      if (href !== '#') window.open(href, target);
+    }));
+  }
+  
+  //---- Slider End
+  
+});
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  //------ Slider Begin
+	const customSlider = document.querySelector('.carousel-slider.custom-slider');
+	const CaroSlider = new MicroSlider(customSlider, { indicators: true, indicatorText: '' });
+	const hammer = new Hammer(customSlider);
+	const CaroSTimer = 2000;
+	let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    
+  //------- Mouseenter Event
+	customSlider.onmouseenter = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseleave Event
+	customSlider.onmouseleave = function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //----- Mouseclick Event
+	customSlider.onclick = function(e) {
+		clearInterval(CaroAutoplay); 
+		console.log(e.type + ' mouse detected');
+	}
+  
+  //------ Gesture Tap Event
+	hammer.on('tap', function(e) {
+		clearInterval(CaroAutoplay);
+		console.log(e.type + ' gesture detected');
+	});
+  
+  //----- Gesture Swipe Event
+	hammer.on('swipe', function(e) {
+		clearInterval(CaroAutoplay); 
+		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+		console.log(e.type + ' gesture detected');
+	});
+
+  let slideLink = document.querySelectorAll('.slider-item');
+  if (slideLink && slideLink !== null && slideLink.length > 0){
+    slideLink.forEach( el => el.addEventListener('click', e => {
+      e.preventDefault();
+      let href = el.dataset.href;
+      let target = el.dataset.target;
+      if (href !== '#') window.open(href, target);
+    }));
+  }
+  
+  //---- Slider End
+  
+});
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Select all paragraphs with the class 'clickable-para'
+  const paragraphs = document.querySelectorAll('.clickable-para');
+
+  paragraphs.forEach(paragraph => {
+      paragraph.addEventListener('click', function() {
+          // Remove underline from all paragraphs
+          paragraphs.forEach(p => p.style.textDecoration = 'none');
+          // Add underline to the clicked paragraph
+          this.style.textDecoration = 'underline';
+      });
+  });
+});
+
+
+
+
+
+
+
+
+// email
+
+// function emailSend(event) {
+//   event.preventDefault();
+
+//   var firstName = document.getElementById('firstName').value;
+//   var lastName = document.getElementById('lastName').value;
+//   var email = document.getElementById('email').value;
+//   var phoneNumber = document.getElementById('phoneNumber').value;
+//   var address = document.getElementById('adress').value;
+//   var typeOfService = document.getElementById('typeOfService').value;
+//   var description = document.getElementById('description').value;
+//   var emergencyService = document.getElementById('emergencyService').checked ? 'Yes' : 'No';
+
+//   var messageBody = "First name: " + firstName +
+//       "<br/> Last name: " + lastName +
+//       "<br/> Email: " + email +
+//       "<br/> Phone number: " + phoneNumber +
+//       "<br/> Address: " + address +
+//       "<br/> Type Of Service: " + typeOfService +
+//       "<br/> Description: " + description +
+//       "<br/> Emergency Service: " + emergencyService;
+
+//   Email.send({
+//       Host: "smtp.elasticemail.com",
+//       Username: "dhanuchandu1232@gmail.com",
+//       Password: "F4F02329E1DC9FDCEDD7E74DA82B0F2F0050",
+//       To: 'dhanushchandu123@gmail.com',
+//       From: email,
+//       Subject: "Service Request",
+//       Body: messageBody
+//   }).then(
+//       message => {
+//           if (message == 'OK') {
+//               swal("Successful", "Your request has been sent!", "success");
+//               document.querySelector('form').reset();
+//           } else {
+//               swal("Error", "There was an issue sending your request.", "error");
+//           }
+//       }
+//   );
+// }
+
+
+
+
+// function emailSend(event) {
+//   event.preventDefault();
+
+//   var firstName = document.getElementById('firstName').value;
+//   var lastName = document.getElementById('lastName').value;
+//   var email = document.getElementById('email').value;
+//   var phoneNumber = document.getElementById('phoneNumber').value;
+//   var address = document.getElementById('adress').value;
+//   var typeOfService = document.getElementById('typeOfService').value;
+//   var description = document.getElementById('description').value;
+//   var emergencyService = document.getElementById('emergencyService').checked ? 'Yes' : 'No';
+
+//   var messageBody = "First name: " + firstName +
+//       "<br/> Last name: " + lastName +
+//       "<br/> Email: " + email +
+//       "<br/> Phone number: " + phoneNumber +
+//       "<br/> Address: " + address +
+//       "<br/> Type Of Service: " + typeOfService +
+//       "<br/> Description: " + description +
+//       "<br/> Emergency Service: " + emergencyService;
+
+//   Email.send({
+//     Host: "smtp.elasticemail.com",
+//     Username: "dhanuchandu1232@gmail.com",
+//     Password: "F4F02329E1DC9FDCEDD7E74DA82B0F2F0050",
+//     To: 'dhanushchandu123@gmail.com',
+//     From: email,
+//     Subject: "Service Request",
+//     Body: messageBody
+//   }).then(
+//       message => {
+//           if (message == 'OK') {
+//               swal("Successful", "Your request has been sent!", "success");
+//               document.querySelector('form').reset();
+//           } else {
+//               swal("Error", "There was an issue sending your request.", "error");
+//           }
+//       }
+//   ).catch(error => {
+//       swal("Error", "There was an issue sending your request: " + error.message, "error");
+//   });
+// }
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const vacuumImages = [
+      "./images/main.jpeg", // Replace with actual image paths
+      "./images/main2.jpeg",
+      // Add more images as needed
+  ];
+
+  const spareImages = [
+      "./images/main2.jpeg", // Replace with actual image paths
+      "./images/main.jpeg",
+      "./images/main3.jpeg", // Example additional image
+      // Add more images as needed
+  ];
+
+  const carousel = document.querySelector(".carousel");
+  const paginationContainer = document.querySelector(".pagination");
+  let currentImages = [];
+  let currentIndex = 0;
+
+  document.querySelectorAll(".clickable-para").forEach(para => {
+      para.addEventListener("click", function() {
+          const category = para.getAttribute("data-category");
+          currentImages = category === "vacuum" ? vacuumImages : spareImages;
+          currentIndex = 0; // Reset index when category changes
+          loadImages();
+          updatePagination();
+      });
+  });
+
+  function loadImages() {
+      carousel.innerHTML = "";
+      currentImages.forEach((src, index) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.style.position = 'absolute'; // Ensure images are positioned absolutely
+          img.style.left = `${index * 100}%`; // Adjust based on the total width of carousel
+          img.style.width = '100%'; // Ensure each image takes full width of carousel container
+          carousel.appendChild(img);
+      });
+      updateCarousel();
+  }
+
+  function updatePagination() {
+      paginationContainer.innerHTML = "";
+      currentImages.forEach((_, index) => {
+          const span = document.createElement("span");
+          span.addEventListener("click", () => {
+              currentIndex = index;
+              updateCarousel();
+          });
+          paginationContainer.appendChild(span);
+      });
+      updateActivePagination();
+  }
+
+  function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`; // Adjust based on image width
+      updateActivePagination();
+  }
+
+  function updateActivePagination() {
+      const spans = paginationContainer.querySelectorAll("span");
+      spans.forEach((span, index) => {
+          span.classList.toggle("active", index === currentIndex);
+      });
+  }
+
+  document.querySelector(".prev-btn").addEventListener("click", () => {
+      if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+      }
+  });
+
+  document.querySelector(".next-btn").addEventListener("click", () => {
+      if (currentIndex < currentImages.length - 1) {
+          currentIndex++;
+          updateCarousel();
+      }
+  });
+});
 
 
