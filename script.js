@@ -622,3 +622,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Optionally, initialize with the vacuum images
   updateSliderImages(vacuumImages);
 });
+
+
+
+
+
