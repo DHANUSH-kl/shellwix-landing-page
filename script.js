@@ -1,17 +1,18 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const links = document.querySelectorAll('.links a');
+  const links = document.querySelectorAll('.links a');
 
-    links.forEach(link => {
-        link.addEventListener('click', (event) => {
-            event.preventDefault();
-            // Remove 'clicked' class from all links
-            links.forEach(link => link.classList.remove('clicked'));
-            // Add 'clicked' class to the clicked link
-            link.classList.add('clicked');
-        });
-    });
+  links.forEach(link => {
+      link.addEventListener('click', (event) => {
+          // Uncomment this line if you want to allow navigation
+          // event.preventDefault();
+
+          // Remove 'clicked' class from all links
+          links.forEach(link => link.classList.remove('clicked'));
+          // Add 'clicked' class to the clicked link
+          link.classList.add('clicked');
+      });
+  });
 });
-
 
 
 let slider = document.querySelector('.slider .list');
@@ -480,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
   const vacuumImages = [
       "./images/main.jpeg", // Replace with actual image paths
@@ -490,13 +492,13 @@ document.addEventListener("DOMContentLoaded", function() {
   const spareImages = [
       "./images/main2.jpeg", // Replace with actual image paths
       "./images/main.jpeg",
-      "./images/main3.jpeg", // Example additional image
+       // Example additional image
       // Add more images as needed
   ];
 
   const carousel = document.querySelector(".carousel");
   const paginationContainer = document.querySelector(".pagination");
-  let currentImages = [];
+  let currentImages = vacuumImages; // Default to vacuum images
   let currentIndex = 0;
 
   document.querySelectorAll(".clickable-para").forEach(para => {
@@ -560,6 +562,63 @@ document.addEventListener("DOMContentLoaded", function() {
           updateCarousel();
       }
   });
+
+  // Load vacuum images by default
+  loadImages();
+  updatePagination();
 });
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const vacuumImages = [
+      './images/v1.png',
+      './images/v1.png',
+      './images/v1.png',
+      './images/v1.png'
+  ];
+  
+  const spareImages = [
+      './images/a1.jpeg',
+      './images/a1.jpeg',
+      './images/a1.jpeg',
+      './images/a1.jpeg'
+  ];
+  
+  const sliderContainer = document.querySelector('#slider1 .slider-container');
+  
+  function updateSliderImages(images) {
+      sliderContainer.innerHTML = ''; // Clear current images
+      images.forEach(src => {
+          const li = document.createElement('li');
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = '...';
+          li.appendChild(img);
+          sliderContainer.appendChild(li);
+      });
+  }
+  
+  document.getElementById('vacuum-button').addEventListener('click', () => {
+      updateSliderImages(vacuumImages);
+  });
+  
+  document.getElementById('spare-button').addEventListener('click', () => {
+      updateSliderImages(spareImages);
+  });
+
+  // Optionally, initialize with the vacuum images
+  updateSliderImages(vacuumImages);
+});

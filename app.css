@@ -69,7 +69,6 @@ nav .links a.clicked {
     margin: auto;
     position: relative;
     overflow: hidden;
-    background-color: #FA6000;
 }
 .slider .list{
     position: absolute;
@@ -140,8 +139,14 @@ nav .links a.clicked {
     position: absolute;
     top: 0;
     left: 0;
+    background: rgba(0, 0, 0, 0.30);
 }
-
+.slider .dots {
+    z-index: 5;
+}
+.slider .buttons {
+    z-index: 5;
+}
 .slider-center {
     position: absolute;
     top: 50%;
@@ -157,14 +162,14 @@ nav .links a.clicked {
     gap: 1rem;
 }
 .slider-center h1{
-    width: 60vw;
+    width: 41vw;
     color: #FFF;
     text-align: center;
     font-family: Roboto;
-    font-size: 45px;
+    font-size: 33px;
     font-style: normal;
     font-weight: 600;
-    line-height: 120%; /* 78px */
+    line-height: 120%;
 }
 
 .bt {
@@ -176,8 +181,8 @@ nav .links a.clicked {
     gap: 1.5rem;
 }
 .bt .one , .bt .two{
-    width: 7rem;
-    height: 2.5rem;
+    width: 9.5rem;
+    height: 2.9rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -283,7 +288,7 @@ nav .links a.clicked {
     color: var(--primary-color, #FA6000);
     text-align: center;
     font-family: Roboto;
-    font-size: 65px;
+    font-size: 50px;
     font-style: normal;
     font-weight: 600;
     line-height: 120%; /* 78px */
@@ -292,16 +297,18 @@ nav .links a.clicked {
 .heading- {
     color: var(--black-font-color, #303030);
     font-family: Roboto;
-    font-size: 32px;
+    font-size: 23px;
     font-style: normal;
     font-weight: 600;
-    line-height: 150%; /* 48px */
+    line-height: 150%;
+    width: 50%;
 }
 
 .about-description {
     color: var(--black-font-color, #303030);
     font-family: Roboto;
-    font-size: 24px;
+    font-size: 19px;
+    width: 85%;
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 36px */
@@ -315,7 +322,48 @@ nav .links a.clicked {
     width: 50%;
     gap: 1.5rem;
 }
+.about-description  li {
+    margin-bottom: 0.5rem;
+}
 
+.about-us button {
+    width: 9rem;
+    height: 2.7rem;
+    border-radius: 4px;
+    background: var(--primary-color, #FA6000);
+    border: none;
+    cursor: pointer;
+}
+.about-us button {
+    color: #FFF;
+
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.about-us button:hover{
+    background-color: black;
+    transform: scale(1.1);
+    transition: 0.2s ease-in;
+}
+
+ul, ol {
+    list-style: disc;
+    padding-left: 20px; /* Ensure there is some padding so the bullets are not cut off */
+}
+nav .links svg {
+    font-family: Roboto;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: white;
+  margin-right: 3rem;
+  cursor: pointer;
+}
 .new-products-container {
     width: 100vw;
     height: 110vh;
@@ -1157,17 +1205,17 @@ a, a:link, a:visited {
 
 }
 .superHero1 {
-    background-image: url(./images/1st-1.png);
+    background-image: url(./images/v1.png);
     background-size: contain;
 
 }
 .superHero2 {
-    background-image: url(./images/1st-1.png);
+    background-image: url(./images/v2.jpeg);
     background-size: contain;
     
 }
 .superHero3 {
-    background-image: url(./images/1st-1.png);
+    background-image: url(./images/v3.jpeg);
     background-size: contain;
     
 }
@@ -1244,11 +1292,14 @@ a, a:link, a:visited {
 }
 
 .carousel-slider.custom-slider {
-    height: 560px;
+    height: 460px;
     position: relative;
     width: 100%;
 }
 
+.v1 {
+    margin-top: 6rem;
+}
 .carousel-slider.custom-slider.fullwidth {
     height: 500px;
 }
@@ -1312,18 +1363,20 @@ a, a:link, a:visited {
 }
 
 .custom-item1 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
+    background-image: url(./images/a1.jpeg); 
+    background-size: cover;
     background-repeat: no-repeat;
+
 }
 .custom-item2 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
+    background-image: url(./images/a2.jpeg); 
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 .custom-item3 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
+    background-image: url(./images/a3.jpeg); 
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .custom-item4 {
@@ -1700,4 +1753,180 @@ ul{
 .clickable-para {
     cursor: pointer;
     margin: 10px 0;
+}
+
+
+
+:root {
+    --swiper-theme-color: #EF7C34;
+  }
+
+
+  .row a {
+    color: #FFF;
+
+font-family: Roboto;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+  }
+
+.bt .two:hover {
+    background-color: white;
+    border: none;
+    transition: 0.2s ease-in;
+}
+.bt .one:hover {
+    background-color: white;
+    transition: 0.2s ease-in;
+
+}
+.bt .two:hover a,
+.bt .one:hover a {
+    color: black;
+    transition: color 0.2s ease-in;
+}
+.slider .buttons button {
+    cursor: pointer;
+}
+.slider .buttons button:hover {
+    background-color: #EF7C34;
+    transform: scale(1.2);
+    transition: 0.2s ease-in;
+}
+.slider .buttons button:hover svg path {
+    fill: white;
+    transition: fill 0.2s ease-in;
+}
+
+
+
+.slider-item {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.slider-item button{
+    margin-bottom: 1.8rem;
+    width: 10rem;
+    height: 3rem;
+    background-color: #EF7C34;
+    border: none;
+    border-radius: 4px;
+    display: none;
+    z-index: 99;
+}
+
+.an{
+    color: white !important;
+    font-family: Roboto;
+    z-index: 99;
+}
+
+.slider-item:hover button {
+    display: block;
+    transition: 0.2s ease-in-out !important;
+
+}
+
+.slider-item button:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in;
+    background-color: #000;
+}
+
+.an:hover {
+    color: white;
+}
+.slider-item{
+    background-position: center;
+}
+.slider-item:hover {
+    background-size: 110%;
+    transition: background-size 0.7s ease-in;
+
+    
+}
+
+
+
+/* Zoom and darken effect on hover */
+.slider-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0); /* No dark overlay by default */
+    transition: background 0.3s ease-in-out; /* Smooth transition for the dark overlay */
+    z-index: 1; /* Ensure the overlay is on top */
+}
+
+.slider-item:hover::before {
+    background: rgba(0, 0, 0, 0.5); /* Darken the overlay on hover */
+}
+
+.service-container .two button {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+    width: 7rem;
+    height: 2.3rem;
+    border-radius: 4px;
+    background-color: #EF7C34;
+    border: none;
+    z-index: 999;
+    font-family: Roboto;
+    font-size: 14px;
+    color: white;
+    display: none;
+}
+.service-container .two button a{
+    z-index: 999;
+    font-family: Roboto;
+    font-size: 14px;
+    color: white;
+}
+
+.service-container .two:hover h1 {
+    display: none;
+}
+.service-container .two:hover p {
+    display: none;
+}
+
+.service-container .two:hover button{
+    display: block;
+    transition: 0.2s ease-in;
+}
+
+.service-container .two button:hover {
+    background-color: #000;
+    transform: scale(1.1);
+}
+
+.service-container .two:hover {
+    background-size: 110%;
+    transition: 0.2s ease-in;
+}
+
+#form button:hover{
+    background-color: #000;
+    color: white;
+    transition: 0.2s ease-in;
+}
+
+.abc{
+    z-index: 99999;
+}
+
+
+
+
+
+
+.slider-container {
+    width: 70%;
 }
