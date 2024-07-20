@@ -699,6 +699,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSliderImages(images) {
       // Keep the first slide with the buttons intact
       const firstSlide = sliderContainer.querySelector('li:first-child');
+      firstSlide.classList.add('libtn'); // Add the class 'libtn' to the first li
       sliderContainer.innerHTML = ''; // Clear current images
       sliderContainer.appendChild(firstSlide); // Add the first slide back
 
@@ -721,7 +722,33 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSliderImages(spareImages);
   });
 
+
+  
+
   // Optionally, initialize with the vacuum images
   updateSliderImages(vacuumImages);
 });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const vacuumButton = document.getElementById('vacuum-button');
+  const spareButton = document.getElementById('spare-button');
+  
+  function underlineButton(event) {
+      // Get all buttons within the image-toggle-buttons div
+      const buttons = document.querySelectorAll('#image-toggle-buttons button');
+      buttons.forEach(button => {
+          // Remove underline from all buttons
+          button.style.textDecoration = 'none';
+      });
+      
+      // Add underline to the clicked button
+      event.target.style.textDecoration = 'underline';
+  }
+  
+  vacuumButton.addEventListener('click', underlineButton);
+  spareButton.addEventListener('click', underlineButton);
+});
+
 
