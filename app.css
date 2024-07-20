@@ -1935,7 +1935,7 @@ font-weight: 400;
 }
 
 #image-toggle-buttons {
-    width: 100%;
+    width: 32%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -2005,4 +2005,15 @@ font-weight: 400;
 
   .slider-nav::after {
     background-color: #EF7C34;
+  }
+
+
+  .new-products-container .bottom .right {
+    width: 100%;
+  }
+
+
+
+  .libtn {
+    width: 20%;
   }

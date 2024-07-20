@@ -582,6 +582,103 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+// document.addEventListener('DOMContentLoaded', () => {
+//   const vacuumImages = [
+//       './images/v1.png',
+//       './images/v1.png',
+//       './images/v1.png',
+//       './images/v1.png'
+//   ];
+  
+//   const spareImages = [
+//       './images/a1.jpeg',
+//       './images/a1.jpeg',
+//       './images/a1.jpeg',
+//       './images/a1.jpeg'
+//   ];
+  
+//   const sliderContainer = document.querySelector('#slider1 .slider-container');
+  
+//   function updateSliderImages(images) {
+//       sliderContainer.innerHTML = ''; // Clear current images
+//       images.forEach(src => {
+//           const li = document.createElement('li');
+//           const img = document.createElement('img');
+//           img.src = src;
+//           img.alt = '...';
+//           li.appendChild(img);
+//           sliderContainer.appendChild(li);
+//       });
+//   }
+  
+//   document.getElementById('vacuum-button').addEventListener('click', () => {
+//       updateSliderImages(vacuumImages);
+//   });
+  
+//   document.getElementById('spare-button').addEventListener('click', () => {
+//       updateSliderImages(spareImages);
+//   });
+
+//   // Optionally, initialize with the vacuum images
+//   updateSliderImages(vacuumImages);
+// });
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const vacuumImages = [
+//       './images/v1.png',
+//       './images/v1.png',
+//       './images/v1.png',
+//       './images/v1.png'
+//   ];
+  
+//   const spareImages = [
+//       './images/a1.jpeg',
+//       './images/a1.jpeg',
+//       './images/a1.jpeg',
+//       './images/a1.jpeg'
+//   ];
+  
+//   const sliderContainer = document.querySelector('#slider1 .slider-container');
+  
+//   function updateSliderImages(images) {
+//       // Keep the first slide with the buttons intact
+//       const firstSlide = sliderContainer.querySelector('li:first-child');
+//       sliderContainer.innerHTML = ''; // Clear current images
+//       sliderContainer.appendChild(firstSlide); // Add the first slide back
+
+//       // Add new images starting from the second slide
+//       images.forEach(src => {
+//           const li = document.createElement('li');
+//           const img = document.createElement('img');
+//           img.src = src;
+//           img.alt = '...';
+//           li.appendChild(img);
+//           sliderContainer.appendChild(li);
+//       });
+//   }
+  
+//   document.getElementById('vacuum-button').addEventListener('click', () => {
+//       updateSliderImages(vacuumImages);
+//   });
+  
+//   document.getElementById('spare-button').addEventListener('click', () => {
+//       updateSliderImages(spareImages);
+//   });
+
+//   // Optionally, initialize with the vacuum images
+//   updateSliderImages(vacuumImages);
+// });
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const vacuumImages = [
       './images/v1.png',
@@ -600,7 +697,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const sliderContainer = document.querySelector('#slider1 .slider-container');
   
   function updateSliderImages(images) {
+      // Keep the first slide with the buttons intact
+      const firstSlide = sliderContainer.querySelector('li:first-child');
       sliderContainer.innerHTML = ''; // Clear current images
+      sliderContainer.appendChild(firstSlide); // Add the first slide back
+
+      // Add new images starting from the second slide
       images.forEach(src => {
           const li = document.createElement('li');
           const img = document.createElement('img');
@@ -622,8 +724,4 @@ document.addEventListener('DOMContentLoaded', () => {
   // Optionally, initialize with the vacuum images
   updateSliderImages(vacuumImages);
 });
-
-
-
-
 
