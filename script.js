@@ -2,15 +2,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
   const links = document.querySelectorAll('.links a');
 
   links.forEach(link => {
-      link.addEventListener('click', (event) => {
-          // Uncomment this line if you want to allow navigation
-          // event.preventDefault();
+    link.addEventListener('click', (event) => {
+      // Uncomment this line if you want to allow navigation
+      // event.preventDefault();
 
-          // Remove 'clicked' class from all links
-          links.forEach(link => link.classList.remove('clicked'));
-          // Add 'clicked' class to the clicked link
-          link.classList.add('clicked');
-      });
+      // Remove 'clicked' class from all links
+      links.forEach(link => link.classList.remove('clicked'));
+      // Add 'clicked' class to the clicked link
+      link.classList.add('clicked');
+    });
   });
 });
 
@@ -23,98 +23,98 @@ let dots = document.querySelectorAll('.slider .dots li');
 
 let lengthItems = items.length - 1;
 let active = 0;
-next.onclick = function(){
-    active = active + 1 <= lengthItems ? active + 1 : 0;
-    reloadSlider();
+next.onclick = function () {
+  active = active + 1 <= lengthItems ? active + 1 : 0;
+  reloadSlider();
 }
-prev.onclick = function(){
-    active = active - 1 >= 0 ? active - 1 : lengthItems;
-    reloadSlider();
+prev.onclick = function () {
+  active = active - 1 >= 0 ? active - 1 : lengthItems;
+  reloadSlider();
 }
-let refreshInterval = setInterval(()=> {next.click()}, 3000);
-function reloadSlider(){
-    slider.style.left = -items[active].offsetLeft + 'px';
-    // 
-    let last_active_dot = document.querySelector('.slider .dots li.active');
-    last_active_dot.classList.remove('active');
-    dots[active].classList.add('active');
+let refreshInterval = setInterval(() => { next.click() }, 3000);
+function reloadSlider() {
+  slider.style.left = -items[active].offsetLeft + 'px';
+  // 
+  let last_active_dot = document.querySelector('.slider .dots li.active');
+  last_active_dot.classList.remove('active');
+  dots[active].classList.add('active');
 
-    clearInterval(refreshInterval);
-    refreshInterval = setInterval(()=> {next.click()}, 3000);
+  clearInterval(refreshInterval);
+  refreshInterval = setInterval(() => { next.click() }, 3000);
 
-    
+
 }
 
 dots.forEach((li, key) => {
-    li.addEventListener('click', ()=>{
-         active = key;
-         reloadSlider();
-    })
-})
-window.onresize = function(event) {
+  li.addEventListener('click', () => {
+    active = key;
     reloadSlider();
+  })
+})
+window.onresize = function (event) {
+  reloadSlider();
 };
 
 
 
 
 const initSlider = () => {
-    const imageList = document.querySelector(".slider-wrapper .image-list");
-    const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
-    const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
-    const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
-    const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
-    
-    // Handle scrollbar thumb drag
-    scrollbarThumb.addEventListener("mousedown", (e) => {
-        const startX = e.clientX;
-        const thumbPosition = scrollbarThumb.offsetLeft;
-        const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
-        
-        // Update thumb position on mouse move
-        const handleMouseMove = (e) => {
-            const deltaX = e.clientX - startX;
-            const newThumbPosition = thumbPosition + deltaX;
-            // Ensure the scrollbar thumb stays within bounds
-            const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
-            const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
-            
-            scrollbarThumb.style.left = `${boundedPosition}px`;
-            imageList.scrollLeft = scrollPosition;
-        }
-        // Remove event listeners on mouse up
-        const handleMouseUp = () => {
-            document.removeEventListener("mousemove", handleMouseMove);
-            document.removeEventListener("mouseup", handleMouseUp);
-        }
-        // Add event listeners for drag interaction
-        document.addEventListener("mousemove", handleMouseMove);
-        document.addEventListener("mouseup", handleMouseUp);
-    });
-    // Slide images according to the slide button clicks
-    slideButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const direction = button.id === "prev-slide" ? -1 : 1;
-            const scrollAmount = imageList.clientWidth * direction;
-            imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-        });
-    });
-     // Show or hide slide buttons based on scroll position
-    const handleSlideButtons = () => {
-        slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
-        slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+  const imageList = document.querySelector(".slider-wrapper .image-list");
+  const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+  const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
+  const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+  const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
+
+  // Handle scrollbar thumb drag
+  scrollbarThumb.addEventListener("mousedown", (e) => {
+    const startX = e.clientX;
+    const thumbPosition = scrollbarThumb.offsetLeft;
+    const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+
+    // Update thumb position on mouse move
+    const handleMouseMove = (e) => {
+      const deltaX = e.clientX - startX;
+      const newThumbPosition = thumbPosition + deltaX;
+      // Ensure the scrollbar thumb stays within bounds
+      const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+      const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+
+      scrollbarThumb.style.left = `${boundedPosition}px`;
+      imageList.scrollLeft = scrollPosition;
     }
-    // Update scrollbar thumb position based on image scroll
-    const updateScrollThumbPosition = () => {
-        const scrollPosition = imageList.scrollLeft;
-        const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
-        scrollbarThumb.style.left = `${thumbPosition}px`;
+    // Remove event listeners on mouse up
+    const handleMouseUp = () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
     }
-    // Call these two functions when image list scrolls
-    imageList.addEventListener("scroll", () => {
-        updateScrollThumbPosition();
-        handleSlideButtons();
+    // Add event listeners for drag interaction
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
+  });
+  // Slide images according to the slide button clicks
+  slideButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      const direction = button.id === "prev-slide" ? -1 : 1;
+      const scrollAmount = imageList.clientWidth * direction;
+      imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
+  });
+  // Show or hide slide buttons based on scroll position
+  const handleSlideButtons = () => {
+    slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+    slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+  }
+  // Update scrollbar thumb position based on image scroll
+  const updateScrollThumbPosition = () => {
+    const scrollPosition = imageList.scrollLeft;
+    const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+    scrollbarThumb.style.left = `${thumbPosition}px`;
+  }
+  // Call these two functions when image list scrolls
+  imageList.addEventListener("scroll", () => {
+    updateScrollThumbPosition();
+    handleSlideButtons();
+  });
 }
 window.addEventListener("resize", initSlider);
 window.addEventListener("load", initSlider);
@@ -194,48 +194,48 @@ var swiper = new Swiper(".mySwiper", {
 //   all ------------------
 function initParadoxWay() {
   "use strict";
- 
+
   if ($(".testimonials-carousel").length > 0) {
-      var j2 = new Swiper(".testimonials-carousel .swiper-container", {
-          preloadImages: false,
-          slidesPerView: 1,
-          spaceBetween: 20,
-          loop: true,
-          grabCursor: true,
-          mousewheel: false,
-          centeredSlides: true,
-          pagination: {
-              el: '.tc-pagination',
-              clickable: true,
-              dynamicBullets: true,
-          },
-          navigation: {
-              nextEl: '.listing-carousel-button-next',
-              prevEl: '.listing-carousel-button-prev',
-          },
-          breakpoints: {
-              1024: {
-                  slidesPerView: 3,
-              },
-              
-          }
-      });
+    var j2 = new Swiper(".testimonials-carousel .swiper-container", {
+      preloadImages: false,
+      slidesPerView: 1,
+      spaceBetween: 20,
+      loop: true,
+      grabCursor: true,
+      mousewheel: false,
+      centeredSlides: true,
+      pagination: {
+        el: '.tc-pagination',
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: '.listing-carousel-button-next',
+        prevEl: '.listing-carousel-button-prev',
+      },
+      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+        },
+
+      }
+    });
   }
-  
-// bubbles -----------------
-  
-  
+
+  // bubbles -----------------
+
+
   setInterval(function () {
-      var size = randomValue(sArray);
-      $('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
-      $('.individual-bubble').animate({
-          'bottom': '100%',
-          'opacity': '-=0.7'
-      }, 4000, function () {
-          $(this).remove()
-      });
+    var size = randomValue(sArray);
+    $('.bubbles').append('<div class="individual-bubble" style="left: ' + randomValue(bArray) + 'px; width: ' + size + 'px; height:' + size + 'px;"></div>');
+    $('.individual-bubble').animate({
+      'bottom': '100%',
+      'opacity': '-=0.7'
+    }, 4000, function () {
+      $(this).remove()
+    });
   }, 350);
-  
+
 }
 
 //   Init All ------------------
@@ -245,58 +245,58 @@ $(document).ready(function () {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   //------ Slider Begin
-	const CaroS = document.querySelector('.Carousel-slider');
-	const CaroSlider = new MicroSlider(CaroS, { indicators: true, indicatorText: '' });
-	const hammer = new Hammer(CaroS);
-	const CaroSTimer = 2000;
-	let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-    
+  const CaroS = document.querySelector('.Carousel-slider');
+  const CaroSlider = new MicroSlider(CaroS, { indicators: true, indicatorText: '' });
+  const hammer = new Hammer(CaroS);
+  const CaroSTimer = 2000;
+  let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+
   //------- Mouseenter Event
-	CaroS.onmouseenter = function(e) {
-		clearInterval(CaroAutoplay); 
-		console.log(e.type + ' mouse detected');
-	}
-  
+  CaroS.onmouseenter = function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' mouse detected');
+  }
+
   //----- Mouseleave Event
-	CaroS.onmouseleave = function(e) {
-		clearInterval(CaroAutoplay); 
-		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-		console.log(e.type + ' mouse detected');
-	}
-  
+  CaroS.onmouseleave = function (e) {
+    clearInterval(CaroAutoplay);
+    CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    console.log(e.type + ' mouse detected');
+  }
+
   //----- Mouseclick Event
-	CaroS.onclick = function(e) {
-		clearInterval(CaroAutoplay); 
-		console.log(e.type + ' mouse detected');
-	}
-  
+  CaroS.onclick = function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' mouse detected');
+  }
+
   //------ Gesture Tap Event
-	hammer.on('tap', function(e) {
-		clearInterval(CaroAutoplay);
-		console.log(e.type + ' gesture detected');
-	});
-  
+  hammer.on('tap', function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' gesture detected');
+  });
+
   //----- Gesture Swipe Event
-	hammer.on('swipe', function(e) {
-		clearInterval(CaroAutoplay); 
-		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-		console.log(e.type + ' gesture detected');
-	});
+  hammer.on('swipe', function (e) {
+    clearInterval(CaroAutoplay);
+    CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    console.log(e.type + ' gesture detected');
+  });
 
   let slideLink = document.querySelectorAll('.slider-item');
-  if (slideLink && slideLink !== null && slideLink.length > 0){
-    slideLink.forEach( el => el.addEventListener('click', e => {
+  if (slideLink && slideLink !== null && slideLink.length > 0) {
+    slideLink.forEach(el => el.addEventListener('click', e => {
       e.preventDefault();
       let href = el.dataset.href;
       let target = el.dataset.target;
       if (href !== '#') window.open(href, target);
     }));
   }
-  
+
   //---- Slider End
-  
+
 });
 
 
@@ -306,58 +306,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   //------ Slider Begin
-	const customSlider = document.querySelector('.carousel-slider.custom-slider');
-	const CaroSlider = new MicroSlider(customSlider, { indicators: true, indicatorText: '' });
-	const hammer = new Hammer(customSlider);
-	const CaroSTimer = 2000;
-	let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-    
+  const customSlider = document.querySelector('.carousel-slider.custom-slider');
+  const CaroSlider = new MicroSlider(customSlider, { indicators: true, indicatorText: '' });
+  const hammer = new Hammer(customSlider);
+  const CaroSTimer = 2000;
+  let CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+
   //------- Mouseenter Event
-	customSlider.onmouseenter = function(e) {
-		clearInterval(CaroAutoplay); 
-		console.log(e.type + ' mouse detected');
-	}
-  
+  customSlider.onmouseenter = function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' mouse detected');
+  }
+
   //----- Mouseleave Event
-	customSlider.onmouseleave = function(e) {
-		clearInterval(CaroAutoplay); 
-		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-		console.log(e.type + ' mouse detected');
-	}
-  
+  customSlider.onmouseleave = function (e) {
+    clearInterval(CaroAutoplay);
+    CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    console.log(e.type + ' mouse detected');
+  }
+
   //----- Mouseclick Event
-	customSlider.onclick = function(e) {
-		clearInterval(CaroAutoplay); 
-		console.log(e.type + ' mouse detected');
-	}
-  
+  customSlider.onclick = function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' mouse detected');
+  }
+
   //------ Gesture Tap Event
-	hammer.on('tap', function(e) {
-		clearInterval(CaroAutoplay);
-		console.log(e.type + ' gesture detected');
-	});
-  
+  hammer.on('tap', function (e) {
+    clearInterval(CaroAutoplay);
+    console.log(e.type + ' gesture detected');
+  });
+
   //----- Gesture Swipe Event
-	hammer.on('swipe', function(e) {
-		clearInterval(CaroAutoplay); 
-		CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
-		console.log(e.type + ' gesture detected');
-	});
+  hammer.on('swipe', function (e) {
+    clearInterval(CaroAutoplay);
+    CaroAutoplay = setInterval(() => CaroSlider.next(), CaroSTimer);
+    console.log(e.type + ' gesture detected');
+  });
 
   let slideLink = document.querySelectorAll('.slider-item');
-  if (slideLink && slideLink !== null && slideLink.length > 0){
-    slideLink.forEach( el => el.addEventListener('click', e => {
+  if (slideLink && slideLink !== null && slideLink.length > 0) {
+    slideLink.forEach(el => el.addEventListener('click', e => {
       e.preventDefault();
       let href = el.dataset.href;
       let target = el.dataset.target;
       if (href !== '#') window.open(href, target);
     }));
   }
-  
+
   //---- Slider End
-  
+
 });
 
 
@@ -372,12 +372,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const paragraphs = document.querySelectorAll('.clickable-para');
 
   paragraphs.forEach(paragraph => {
-      paragraph.addEventListener('click', function() {
-          // Remove underline from all paragraphs
-          paragraphs.forEach(p => p.style.textDecoration = 'none');
-          // Add underline to the clicked paragraph
-          this.style.textDecoration = 'underline';
-      });
+    paragraph.addEventListener('click', function () {
+      // Remove underline from all paragraphs
+      paragraphs.forEach(p => p.style.textDecoration = 'none');
+      // Add underline to the clicked paragraph
+      this.style.textDecoration = 'underline';
+    });
   });
 });
 
@@ -482,92 +482,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const vacuumImages = [
-      "./images/main.jpeg", // Replace with actual image paths
-      "./images/main2.jpeg",
-      // Add more images as needed
-  ];
-
-  const spareImages = [
-      "./images/main2.jpeg", // Replace with actual image paths
-      "./images/main.jpeg",
-       // Example additional image
-      // Add more images as needed
-  ];
-
-  const carousel = document.querySelector(".carousel");
-  const paginationContainer = document.querySelector(".pagination");
-  let currentImages = vacuumImages; // Default to vacuum images
-  let currentIndex = 0;
-
-  document.querySelectorAll(".clickable-para").forEach(para => {
-      para.addEventListener("click", function() {
-          const category = para.getAttribute("data-category");
-          currentImages = category === "vacuum" ? vacuumImages : spareImages;
-          currentIndex = 0; // Reset index when category changes
-          loadImages();
-          updatePagination();
-      });
-  });
-
-  function loadImages() {
-      carousel.innerHTML = "";
-      currentImages.forEach((src, index) => {
-          const img = document.createElement("img");
-          img.src = src;
-          img.style.position = 'absolute'; // Ensure images are positioned absolutely
-          img.style.left = `${index * 100}%`; // Adjust based on the total width of carousel
-          img.style.width = '100%'; // Ensure each image takes full width of carousel container
-          carousel.appendChild(img);
-      });
-      updateCarousel();
-  }
-
-  function updatePagination() {
-      paginationContainer.innerHTML = "";
-      currentImages.forEach((_, index) => {
-          const span = document.createElement("span");
-          span.addEventListener("click", () => {
-              currentIndex = index;
-              updateCarousel();
-          });
-          paginationContainer.appendChild(span);
-      });
-      updateActivePagination();
-  }
-
-  function updateCarousel() {
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`; // Adjust based on image width
-      updateActivePagination();
-  }
-
-  function updateActivePagination() {
-      const spans = paginationContainer.querySelectorAll("span");
-      spans.forEach((span, index) => {
-          span.classList.toggle("active", index === currentIndex);
-      });
-  }
-
-  document.querySelector(".prev-btn").addEventListener("click", () => {
-      if (currentIndex > 0) {
-          currentIndex--;
-          updateCarousel();
-      }
-  });
-
-  document.querySelector(".next-btn").addEventListener("click", () => {
-      if (currentIndex < currentImages.length - 1) {
-          currentIndex++;
-          updateCarousel();
-      }
-  });
-
-  // Load vacuum images by default
-  loadImages();
-  updatePagination();
-});
-
 
 
 
@@ -589,16 +503,16 @@ document.addEventListener("DOMContentLoaded", function() {
 //       './images/v1.png',
 //       './images/v1.png'
 //   ];
-  
+
 //   const spareImages = [
 //       './images/a1.jpeg',
 //       './images/a1.jpeg',
 //       './images/a1.jpeg',
 //       './images/a1.jpeg'
 //   ];
-  
+
 //   const sliderContainer = document.querySelector('#slider1 .slider-container');
-  
+
 //   function updateSliderImages(images) {
 //       sliderContainer.innerHTML = ''; // Clear current images
 //       images.forEach(src => {
@@ -610,11 +524,11 @@ document.addEventListener("DOMContentLoaded", function() {
 //           sliderContainer.appendChild(li);
 //       });
 //   }
-  
+
 //   document.getElementById('vacuum-button').addEventListener('click', () => {
 //       updateSliderImages(vacuumImages);
 //   });
-  
+
 //   document.getElementById('spare-button').addEventListener('click', () => {
 //       updateSliderImages(spareImages);
 //   });
@@ -637,16 +551,16 @@ document.addEventListener("DOMContentLoaded", function() {
 //       './images/v1.png',
 //       './images/v1.png'
 //   ];
-  
+
 //   const spareImages = [
 //       './images/a1.jpeg',
 //       './images/a1.jpeg',
 //       './images/a1.jpeg',
 //       './images/a1.jpeg'
 //   ];
-  
+
 //   const sliderContainer = document.querySelector('#slider1 .slider-container');
-  
+
 //   function updateSliderImages(images) {
 //       // Keep the first slide with the buttons intact
 //       const firstSlide = sliderContainer.querySelector('li:first-child');
@@ -663,11 +577,11 @@ document.addEventListener("DOMContentLoaded", function() {
 //           sliderContainer.appendChild(li);
 //       });
 //   }
-  
+
 //   document.getElementById('vacuum-button').addEventListener('click', () => {
 //       updateSliderImages(vacuumImages);
 //   });
-  
+
 //   document.getElementById('spare-button').addEventListener('click', () => {
 //       updateSliderImages(spareImages);
 //   });
@@ -681,49 +595,52 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const vacuumImages = [
-      './images/v1.png',
-      './images/v1.png',
-      './images/v1.png',
-      './images/v1.png'
+    './images/new1.png',
+    './images/new2.png',
+    './images/new1.png',
+    './images/blog.png'
   ];
-  
+
   const spareImages = [
-      './images/a1.jpeg',
-      './images/a1.jpeg',
-      './images/a1.jpeg',
-      './images/a1.jpeg'
+    './images/a1.jpeg',
+    './images/a1.jpeg',
+    './images/a1.jpeg',
+    './images/a1.jpeg'
   ];
-  
+
   const sliderContainer = document.querySelector('#slider1 .slider-container');
-  
+
   function updateSliderImages(images) {
-      // Keep the first slide with the buttons intact
-      const firstSlide = sliderContainer.querySelector('li:first-child');
-      firstSlide.classList.add('libtn'); // Add the class 'libtn' to the first li
-      sliderContainer.innerHTML = ''; // Clear current images
-      sliderContainer.appendChild(firstSlide); // Add the first slide back
+    // Keep the first slide with the buttons intact
+    const firstSlide = sliderContainer.querySelector('li:first-child');
+    firstSlide.classList.add('libtn'); // Add the class 'libtn' to the first li
+    sliderContainer.innerHTML = ''; // Clear current images
+    sliderContainer.appendChild(firstSlide); // Add the first slide back
 
-      // Add new images starting from the second slide
-      images.forEach(src => {
-          const li = document.createElement('li');
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = '...';
-          li.appendChild(img);
-          sliderContainer.appendChild(li);
-      });
+    // Add new images starting from the second slide
+    images.forEach(src => {
+      const li = document.createElement('li');
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = '...';
+      li.appendChild(img);
+      sliderContainer.appendChild(li);
+
+
+      
+    });
   }
-  
+
   document.getElementById('vacuum-button').addEventListener('click', () => {
-      updateSliderImages(vacuumImages);
+    updateSliderImages(vacuumImages);
   });
-  
+
   document.getElementById('spare-button').addEventListener('click', () => {
-      updateSliderImages(spareImages);
+    updateSliderImages(spareImages);
   });
 
 
-  
+
 
   // Optionally, initialize with the vacuum images
   updateSliderImages(vacuumImages);
@@ -734,19 +651,19 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const vacuumButton = document.getElementById('vacuum-button');
   const spareButton = document.getElementById('spare-button');
-  
+
   function underlineButton(event) {
-      // Get all buttons within the image-toggle-buttons div
-      const buttons = document.querySelectorAll('#image-toggle-buttons button');
-      buttons.forEach(button => {
-          // Remove underline from all buttons
-          button.style.textDecoration = 'none';
-      });
-      
-      // Add underline to the clicked button
-      event.target.style.textDecoration = 'underline';
+    // Get all buttons within the image-toggle-buttons div
+    const buttons = document.querySelectorAll('#image-toggle-buttons button');
+    buttons.forEach(button => {
+      // Remove underline from all buttons
+      button.style.textDecoration = 'none';
+    });
+
+    // Add underline to the clicked button
+    event.target.style.textDecoration = 'underline';
   }
-  
+
   vacuumButton.addEventListener('click', underlineButton);
   spareButton.addEventListener('click', underlineButton);
 });
