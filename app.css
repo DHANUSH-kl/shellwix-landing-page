@@ -552,7 +552,7 @@ nav .links svg {
     align-items: flex-start;
     flex-direction: column;
     border-radius: 4px;
-    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+    /* background: url(<path-to-image>) lightgray 50% / cover no-repeat; */
     box-shadow: 10px 17px 20px 0px rgba(0, 0, 0, 0.25);
     padding: 1rem;
     gap: 0.5rem;
@@ -583,7 +583,8 @@ nav .links svg {
 .service-container .one {
     position: relative;
     overflow: hidden;
-    /* background: url(./images/ser1.png) lightgray 50% / cover no-repeat; */
+    background: url(./images/ser1.png) lightgray 50% / cover no-repeat;
+    background-size: contain;
 }
 .service-container .boxes img {
     position: absolute;
@@ -597,16 +598,18 @@ nav .links svg {
 .service-container .two {
     position: relative;
     overflow: hidden;
+    background-size: contain;
 
 
-    /* background: url(./images/ser2.png) lightgray 50% / cover no-repeat; */
+    background: url(./images/ser2.png) lightgray 50% / cover no-repeat;
 }
 .service-container .three {
     position: relative;
     overflow: hidden;
+    background-size: contain;
 
 
-    /* background: url(./images/ser3.svg) lightgray 50% / cover no-repeat; */
+    background: url(./images/ser3.svg) lightgray 50% / cover no-repeat;
 }
 
 .choose {
@@ -2655,14 +2658,14 @@ footer .row {
     z-index: 9999999999;
   }
 
-.slider-item img {
+/* .slider-item img {
     width: 100%;
     height: 25%;
     position: absolute;
     bottom: 0;
     left: 0;
-}
+} */
 
-.service-container .boxes img {
+/* .service-container .boxes img {
     object-fit: contain;
-}
+} */
