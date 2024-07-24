@@ -620,14 +620,28 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add new images starting from the second slide
     images.forEach(src => {
       const li = document.createElement('li');
+      
+      // Create the new product heading
+      const newProductHeading = document.createElement('h1');
+      newProductHeading.id = 'new-product';
+      newProductHeading.innerHTML = 'COMING <span>SOON</span>';
+
+      // Create the additional image with id 'newimg'
+      const newImg = document.createElement('img');
+      newImg.id = 'newimg';
+      newImg.src = './images/newimg.png';
+      newImg.alt = 'New Image';
+
+      // Create the image for the current source
       const img = document.createElement('img');
       img.src = src;
       img.alt = '...';
+
+      // Append the heading, new image, and the main image to the li
+      li.appendChild(newProductHeading);
+      li.appendChild(newImg);
       li.appendChild(img);
       sliderContainer.appendChild(li);
-
-
-      
     });
   }
 
@@ -638,9 +652,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('spare-button').addEventListener('click', () => {
     updateSliderImages(spareImages);
   });
-
-
-
 
   // Optionally, initialize with the vacuum images
   updateSliderImages(vacuumImages);
