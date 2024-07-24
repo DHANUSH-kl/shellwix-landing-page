@@ -581,16 +581,32 @@ nav .links svg {
 }
 
 .service-container .one {
-
-    background: url(./images/ser1.svg) lightgray 50% / cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    /* background: url(./images/ser1.png) lightgray 50% / cover no-repeat; */
 }
-.service-container .two {
+.service-container .boxes img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    object-fit: cover;
+}
 
-    background: url(./images/ser2.svg) lightgray 50% / cover no-repeat;
+
+.service-container .two {
+    position: relative;
+    overflow: hidden;
+
+
+    /* background: url(./images/ser2.png) lightgray 50% / cover no-repeat; */
 }
 .service-container .three {
+    position: relative;
+    overflow: hidden;
 
-    background: url(./images/ser3.svg) lightgray 50% / cover no-repeat;
+
+    /* background: url(./images/ser3.svg) lightgray 50% / cover no-repeat; */
 }
 
 .choose {
@@ -2645,4 +2661,8 @@ footer .row {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.service-container .boxes img {
+    object-fit: contain;
 }
