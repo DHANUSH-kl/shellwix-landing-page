@@ -2676,3 +2676,7 @@ footer .row {
 .new-products-container .bottom {
     margin-top: -3rem;
 }
+
+.slider-item {
+    overflow: hidden;
+}
