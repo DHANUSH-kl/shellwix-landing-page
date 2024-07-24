@@ -2693,3 +2693,13 @@ footer .row {
   .slider-nav {
     margin-top: 33.5rem;
   }
+
+  
+  .vacum {
+    gap: 1rem;
+    height: 20vh;
+  }
+
+  .service-container {
+    margin-bottom: 4rem;
+  }
