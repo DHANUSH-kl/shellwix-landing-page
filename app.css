@@ -3536,3 +3536,18 @@ section {
   z-index: 99999;
 
 }
+
+
+.rights {
+  height: 10%;
+  padding-top: 1rem;
+}
+
+.footer {
+  height: auto;
+}
+
+.four-container {
+  position: relative;
+  z-index: 99999;
+}
