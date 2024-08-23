@@ -2847,6 +2847,11 @@ footer .row {
         font-size: 8px;
     }
 
+    .about-us {
+      justify-content: center;
+      gap: 5rem;
+    }
+
     .inbox{
         justify-content: space-between;
         padding: 0;
@@ -3520,3 +3525,14 @@ section {
 }
 }
 
+.slider-center {
+  z-index: 9999;
+}
+.slider .buttons {
+  z-index: 99999;
+}
+
+.four-container {
+  z-index: 99999;
+
+}
