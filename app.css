@@ -1225,35 +1225,32 @@ a, a:link, a:visited {
 
 }
 .superHero1 {
-    background-image: url(./images/v1.png);
     background-size: contain;
 
 }
 .superHero2 {
-    background-image: url(./images/v2.jpeg);
     background-size: contain;
     
 }
 .superHero3 {
-    background-image: url(./images/v3.jpeg);
     background-size: contain;
     
 }
 .superHero4 {
-    background-image: url(./images/1st-1.png);
     background-size: contain;
     
 }
 .superHero5 {
-    background-image: url(./images/1st-1.png);
     background-size: contain;
     
 }
 
 .slider-item {
     border-radius: 0 !important;
-    width: 500px !important;
+    width: 800px !important;
+    height: 400px !important;
 }
+
 
 .vacum1 {
     height: 100vh;
@@ -1383,43 +1380,14 @@ a, a:link, a:visited {
 
 }
 
-.custom-item1 {
-    background-image: url(./images/a1.jpeg); 
+.custom-item {
     background-size: cover;
     background-repeat: no-repeat;
+    width: 100%;
+    object-fit: contain;
 
 }
-.custom-item2 {
-    background-image: url(./images/a2.jpeg); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.custom-item3 {
-    background-image: url(./images/a3.jpeg); 
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.custom-item4 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.custom-item5 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.custom-item6 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-.custom-item7 {
-    background-image: url(./images/vaccume.svg); 
-    background-size: contain;
-    background-repeat: no-repeat;
-}
+
 
 
 
@@ -2099,7 +2067,7 @@ font-weight: 400;
 
 
   .indicators {
-    bottom: 2.5rem;
+    bottom: 0;
   }
   
   .slider-wrapper {
@@ -3323,4 +3291,38 @@ footer .row {
     /* Hides the spinner buttons */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+
+
+
+
+/* .superHero1 img, .superHero2 img, .superHero3 img, .superHero4 img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+} */
+
+
+
+.slider-item {
+  width: 100%;
+  height: 100%;
+}
+
+.slider-item img {
+  object-fit: contain;
+  background-repeat: no-repeat;
+}
+
+.custom-item img {
+  width: 100%;
+  height: 100%; /* Ensures the image height matches the container */
+  object-fit: cover; /* Ensures the image is contained within its container */
+}
+
+#vc-container img{
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }

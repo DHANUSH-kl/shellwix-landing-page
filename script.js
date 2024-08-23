@@ -133,9 +133,9 @@ function showSlide(index) {
   cards.forEach((card, i) => {
     if (i === index - 1) {
       card.classList.add('visible');
-      card.classList.remove('blurred');
+      // card.classList.remove('blurred');
     } else {
-      card.classList.add('blurred');
+      // card.classList.add('blurred');
       card.classList.remove('visible');
     }
   });
@@ -595,10 +595,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const vacuumImages = [
-    './images/new1.png',
-    './images/new2.png',
-    './images/new1.png',
-    './images/blog.png'
+    './images/cs1.jpg',
+    './images/cs2.jpg',
+    './images/cs3.jpg',
   ];
 
   const spareImages = [
