@@ -1248,7 +1248,7 @@ a, a:link, a:visited {
 .slider-item {
     border-radius: 0 !important;
     width: 800px !important;
-    height: 400px !important;
+    /* height: 400px !important; */
 }
 
 
@@ -2941,7 +2941,7 @@ footer .row {
 
       .slider-item {
         border-radius: 0 !important;
-        width: 300px !important;
+        width: 70% !important;
         height: 200px !important;
       }
 
@@ -2972,11 +2972,19 @@ footer .row {
 
       .indicators {
         position: absolute;
-        top: 95%;
+        top: 85%;
         left: 50%;
         transform: translate(-50%,-50%);
         margin: 0;
         padding: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .v-container1 .Carousel-slider {
+        height: 408px;
       }
 
       /* .v2 {
@@ -3022,7 +3030,7 @@ footer .row {
       }
       .ac-container {
         padding: 0;
-        height: 250px;
+        height:300px;
         margin-top: -5px;
       }
 
@@ -3325,4 +3333,10 @@ input[type="number"] {
   object-fit: contain;
   width: 100%;
   height: 100%;
+} 
+
+
+
+.bg-box {
+  z-index: 99999;
 }
