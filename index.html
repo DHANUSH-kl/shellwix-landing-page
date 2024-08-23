@@ -20,6 +20,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous"
         defer></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
         crossorigin="anonymous">
 
@@ -30,12 +32,33 @@
 <body>
 
 
+    <div class="mb-links close-nav">
+        <span class="material-symbols-outlined close-icon">
+            close
+            </span>
+
+        <a href="" class="home">Home </a>
+        <a href="#services">Service </a>
+        <a href="#products">Product </a>
+        <a href="#about">About </a>
+        <a href="">Blog </a>
+        <a href="#form">Contact us </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 31 31" fill="none">
+            <path
+                d="M20 20L29 29M12.5 23C6.70101 23 2 18.299 2 12.5C2 6.70101 6.70101 2 12.5 2C18.299 2 23 6.70101 23 12.5C23 18.299 18.299 23 12.5 23Z"
+                stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+    </div>
+
 
 
     <main>
 
         <nav>
             <img src="./images/logo.svg" alt="">
+            <span class="material-symbols-outlined close-icon-two">
+                menu
+                </span>
             <div class="links">
                 <a href="" class="home">Home </a>
                 <a href="#services">Service </a>
@@ -188,23 +211,30 @@
                         </li>
                     </ul>
 
-                    <button type="button" class="slider-nav bleft" aria-label="Go left">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
-                            <path
-                                d="M0.292893 8.70711C-0.0976314 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928933C7.04738 0.538409 7.68054 0.538409 8.07107 0.928933C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65686 15.0711L0.292893 8.70711ZM19 9L1 9L1 7L19 7L19 9Z"
-                                fill="black" />
-                        </svg>
+
+                    <div class="n-btn">
+                        <button type="button" class="slider-nav bleft" aria-label="Go left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16"
+                                fill="none">
+                                <path
+                                    d="M0.292893 8.70711C-0.0976314 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928933C7.04738 0.538409 7.68054 0.538409 8.07107 0.928933C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65686 15.0711L0.292893 8.70711ZM19 9L1 9L1 7L19 7L19 9Z"
+                                    fill="black" />
+                            </svg>
 
 
 
-                    </button>
-                    <button type="button" class="slider-nav bright slider-nav-next" aria-label="Go left">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
-                            <path
-                                d="M18.7071 8.70711C19.0976 8.31658 19.0976 7.68342 18.7071 7.29289L12.3431 0.928933C11.9526 0.538409 11.3195 0.538409 10.9289 0.928933C10.5384 1.31946 10.5384 1.95262 10.9289 2.34315L16.5858 8L10.9289 13.6569C10.5384 14.0474 10.5384 14.6805 10.9289 15.0711C11.3195 15.4616 11.9526 15.4616 12.3431 15.0711L18.7071 8.70711ZM-8.74228e-08 9L18 9L18 7L8.74228e-08 7L-8.74228e-08 9Z"
-                                fill="black" />
-                        </svg>
-                    </button>
+                        </button>
+                        <button type="button" class="slider-nav bright slider-nav-next" aria-label="Go left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16"
+                                fill="none">
+                                <path
+                                    d="M18.7071 8.70711C19.0976 8.31658 19.0976 7.68342 18.7071 7.29289L12.3431 0.928933C11.9526 0.538409 11.3195 0.538409 10.9289 0.928933C10.5384 1.31946 10.5384 1.95262 10.9289 2.34315L16.5858 8L10.9289 13.6569C10.5384 14.0474 10.5384 14.6805 10.9289 15.0711C11.3195 15.4616 11.9526 15.4616 12.3431 15.0711L18.7071 8.70711ZM-8.74228e-08 9L18 9L18 7L8.74228e-08 7L-8.74228e-08 9Z"
+                                    fill="black" />
+                            </svg>
+                        </button>
+
+                    </div>
+
 
 
                     <div class="slider-indicators slider-indicators-square d-none d-md-flex">
@@ -259,7 +289,7 @@
 
     </div>
     <div id="Carousel-slider">
-        <section>
+        <section class="v-container1">
 
             <div class="Carousel-slider">
                 <!-- Background Images div -->
@@ -295,7 +325,7 @@
 
 
 
-    <div class="vacum">
+    <div class="vacum v2">
         <h1>Shop Accessories</h1>
         <p>Shop Our Collection of High-Quality Vacuum Pump Spare Parts Enhance your vacuum Quality</p>
 
@@ -305,7 +335,7 @@
     </div>
 
     <div id="custom-carousel-slider">
-        <section>
+        <section class="ac-container">
             <div class="carousel-slider custom-slider">
 
                 <!-- Background Images div -->

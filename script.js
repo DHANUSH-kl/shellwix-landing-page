@@ -680,3 +680,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+document.querySelector('.close-icon').addEventListener('click', function() {
+  document.querySelector('.mb-links').classList.toggle('close-nav');
+});
+
+document.querySelector('.close-icon-two').addEventListener('click', function() {
+  document.querySelector('.mb-links').classList.toggle('close-nav');
+});
