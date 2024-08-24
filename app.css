@@ -3243,9 +3243,7 @@ footer .row {
         font-size: 8px;
       }
 
-      .rights {
-        /* margin-bottom: 8.5rem; */
-      }
+      
       .form-container {
         height: 100vh;
       }
@@ -3524,8 +3522,7 @@ section {
 .flogo h1 {
   font-size: 12px;
 }
-.footer {
-}
+
 }
 
 .slider-center {
