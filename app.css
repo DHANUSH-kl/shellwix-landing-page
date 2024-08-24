@@ -2849,7 +2849,7 @@ footer .row {
 
     .about-us {
       justify-content: center;
-      gap: 5rem;
+      gap: 2rem;
     }
 
     .inbox{
@@ -2857,6 +2857,7 @@ footer .row {
         padding: 0;
         gap: 0;
         padding: 0 5px 3px 5px;
+        /* margin-left: 0.5rem; */
     }
     .bg-box .descripton {
         font-size: 7px;
@@ -3000,6 +3001,7 @@ footer .row {
         top: 90%;
         left: 50%;
         transform: translate(-50% , -50%);
+        width: 100%;
       }
 
       .slider-item button {
@@ -3075,7 +3077,7 @@ footer .row {
       }
 
       .v2 {
-        margin-top: 20rem;
+        margin-top: 7rem;
       }
       .ac-container {
         padding: 0;
@@ -3412,7 +3414,7 @@ input[type="number"] {
     width: 1.5rem;
     height: 2.3rem;
     position: absolute;
-    left: 12rem;
+    left: 10rem;
     top: 0;
   }
 
@@ -3479,7 +3481,7 @@ section {
 
 #services {
   height: 8vh;
-  margin-top: 23rem;
+  margin-top: 7rem;
 }
 
 
