@@ -3066,6 +3066,7 @@ footer .row {
 
       .vacum {
         height: 12vh;
+        gap: 1.2rem;
         /* margin-top: 21rem; */
       }
       .v1 {
@@ -3082,7 +3083,7 @@ footer .row {
       .ac-container {
         padding: 0;
         height:400px;
-        margin-top: -5px;
+        /* margin-top: -5px; */
       }
 
       #services {
