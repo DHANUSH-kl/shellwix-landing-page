@@ -3086,6 +3086,9 @@ footer .row {
         /* margin-top: -5px; */
       }
 
+      .vacum p {
+        line-height: 1.5;
+      }
       #services {
         height: 8vh;
         margin-top: 20rem;
