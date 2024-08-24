@@ -3077,7 +3077,7 @@ footer .row {
       }
 
       .v2 {
-        margin-top: 7rem;
+        margin-top: 5.5rem;
       }
       .ac-container {
         padding: 0;
@@ -3234,12 +3234,13 @@ footer .row {
         height: 2rem;
       }
       .footer-col h4 {
-        font-size: 16px;
+        font-size: 12px;
+        margin-bottom: 1rem;
 
       }
 
       .footer-col ul li a {
-        font-size: 14px;
+        font-size: 8px;
       }
 
       .rights {
@@ -3481,7 +3482,7 @@ section {
 
 #services {
   height: 8vh;
-  margin-top: 7rem;
+  margin-top: 5.5rem;
 }
 
 
